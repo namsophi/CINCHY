@@ -1,15 +1,24 @@
+import concurrent.futures
 import Facades.customer_facade as CF
+from Objects.Manager import Manager
+from Objects.Processor import create_processes
 
 
 def main():
-    # list of customers
-    # TODO: customer class
-    customers = [CF.make_customer("A", 1000000, 30),
-                 CF.make_customer("B", 1000000, 60),
-                 CF.make_customer("A1", 1000, 30),
-                 CF.make_customer("C", 1, 1440)]
+    request_manager = Manager()
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        while input("Would you like to put in a new order? Answer Y or N") != "N":
+            docs = input("Enter the number of documents to process: ")
+            sla = input("Enter the SLA in minutes: ")
+            customer = CF.make_customer(sla, docs)
+            # processing each customer in parallel
+            # problem: doesn't share globals
+            # problem2: how to buy processors efficiently?
+            results = [executor.submit(create_processes,
+                                       request_manager, customer)]
 
-    cost = CF.process_documents(customers)
+        for f in concurrent.futures.as_completed(results):
+            print(f.result())
 
 
 if __name__ == '__main__':
