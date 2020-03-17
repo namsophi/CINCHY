@@ -1,5 +1,6 @@
-from Objects.customer import Customer
+from Objects.Customer import Customer
 from Objects.Processor import create_processes
+from Objects.Calculator import calculate
 
 
 def make_customer(sla, docs):
@@ -8,5 +9,9 @@ def make_customer(sla, docs):
 
 
 def process(order_manager, customer):
-    create_processes(order_manager, customer)
+    return create_processes(order_manager, customer)
+
+
+def calculate_cost(order_manager):
+    return calculate(order_manager)
 
