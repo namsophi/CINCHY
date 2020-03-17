@@ -1,4 +1,4 @@
-# CINCHY
+# Parallel Processor
 
 Assumptions
 1) multiple customers
