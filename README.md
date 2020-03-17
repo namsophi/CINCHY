@@ -1,8 +1,4 @@
 
-
-Objective
-- find the most efficient way to process all the documents in the given timeline
-
 # Parallel Processor
 
 This program allows multiple customers to put in a request to process documents while following the SLA (service-level agreement). It simulates the processing time with a delay of 1 second for each estimated minute. The algorithm finds a cost efficient way to process the customers' request in parallel. The following are assumptions that the program is built upon:
