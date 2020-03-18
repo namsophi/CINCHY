@@ -1,7 +1,7 @@
 from Objects.Customer import Customer
 from Objects.Processor import create_processes
 from Objects.Reporter import Reporter
-from Objects.ProcessManager import create_manager
+from Objects.ProcessManager import ProcessManager
 
 
 def make_customer(sla, docs):
@@ -10,11 +10,11 @@ def make_customer(sla, docs):
 
 
 def set_up_manager():
-    return create_manager()
+    return ProcessManager()
 
 
-def process(order_manager, customer, reporter):
-    return create_processes(order_manager, customer, reporter)
+def process(pipe, order_manager, customer, reporter):
+    return create_processes(pipe, order_manager, customer, reporter)
 
 
 def create_reporter(file):
