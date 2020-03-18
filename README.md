@@ -96,7 +96,7 @@ Customer B comes in 10 minutes after A's request is finished, and wants 1 000 00
 * we already purchased 33334 processors for A, so by the time we start B's request, we have 33334 processors for 20 minutes
 * we then purchase 66666 more processors to finish B's request on time
 * we would end up with 33334 processors for 10 more minutes, and 66666 processors for 50 more minutes
-* so we purchase a total of 100 000 processors, costing $50 000
+* so we purchase a total of 100 000 processors, costing $500 000
 
 ## Technology
 
