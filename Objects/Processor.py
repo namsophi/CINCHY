@@ -4,8 +4,6 @@ from Objects import ProcessHelpers as pH
 
 
 def create_processes(pipe, manager, customer, reporter):
-    print(manager.processors)
-    print(manager.time_left)
     if not manager.processors:
         pipe.send(_no_processors_to_use(manager, customer, reporter))
         return
@@ -35,10 +33,8 @@ def _process_leftovers(manager, customer, reporter):
         pH.can_finish_with_leftovers(manager, customer.sla)
         reporter.report_single_process(customer.docs, customer.sla)
         return manager
+
     time_left = customer.sla
-    # if sum(manager.processors) * manager.time_left[0] >= customer.docs\
-    #         and manager.time_left[0]:
-    #     pH.can_finish_with_leftovers(manager, time)
 
     for i in range(len(manager.time_left)):
         if time_left - manager.time_left[i] > 0:
