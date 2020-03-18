@@ -14,7 +14,9 @@ Process report will be written by the program in an external text file `report.t
 
 ## Example Case
 
-Explain how to run the automated tests for this system
+1) Customer A wants to process 1 000 000 documents in 20 minutes
+* `report.txt` should report once it is done processing the required documents
+* there should have been 50 000 processors used total cost should be $250 000
 
 
 ## Technology
