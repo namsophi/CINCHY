@@ -8,7 +8,7 @@ This program allows multiple customers to put in a request to process documents 
 
 ## Getting Started
 
-To run this project, install it locally and run `main.py`.
+To run this project, install it locally and run `main.py`.\\
 Type in input to the python console as prompted.
 
 ## Example Case
@@ -18,5 +18,5 @@ Explain how to run the automated tests for this system
 
 ## Technology
 
-This project is created with:
+This project is created with:\\
   Python 3.7
