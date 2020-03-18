@@ -12,7 +12,7 @@ To run this project, install it locally and run `main.py`. <br />
 Type in the series of requests to the python console, following the prompt. <br />
 Process report will be written by the program in an external text file `report.txt`.
 
-## Example Case
+## Example Cases
 
 1) No processors are available for immediate use <br />
 ```
@@ -44,7 +44,9 @@ Would you like a report of today's orders? Answer Y/N: Y
 Customer A wants 1 000 000 documents processed in 10 minutes.<br />
 Customer B comes in 5 minutes after A's request is finished, and wants 1 000 000 documents processed in 20 minutes<br />
 
-* We purchase 100 000 processors to finish A's requests in time, so by the time we get to B's request we have 100 000 processors for 45 minutes. Hence we can use these to finish B's request in 10 minutes without purchase of additional processors. 
+* We purchase 100 000 processors to finish A's request
+* When we start B's request we have 100 000 processors left for 45 minutes
+* We finish B's request in 10 minutes using these leftover processors
 * 100 000 processors were purchased, costing $500 000
 * A's request was processed in 10 minutes, and so was B's request.
 
