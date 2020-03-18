@@ -1,11 +1,16 @@
 from Objects.Customer import Customer
 from Objects.Processor import create_processes
 from Objects.Reporter import Reporter
+from Objects.ProcessManager import create_manager
 
 
 def make_customer(sla, docs):
     new = Customer(sla, docs)
     return new
+
+
+def set_up_manager():
+    return create_manager()
 
 
 def process(order_manager, customer, reporter):
