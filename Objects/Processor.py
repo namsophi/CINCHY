@@ -28,12 +28,17 @@ def _no_processors_to_use(manager, customer, reporter):
 
 def _process_leftovers(manager, customer, reporter):
     to_buy = math.ceil(customer.docs / customer.sla) - sum(manager.processors)
-    if to_buy > 0:
+    if to_buy > 0 and manager.time_left[0] >= customer.sla:
         manager.total_used += to_buy
         manager.processors.append(to_buy)
         manager.time_left.append(60)
-
+        pH.can_finish_with_leftovers(manager, customer.sla)
+        reporter.report_single_process(customer.docs, customer.sla)
+        return manager
     time_left = customer.sla
+    # if sum(manager.processors) * manager.time_left[0] >= customer.docs\
+    #         and manager.time_left[0]:
+    #     pH.can_finish_with_leftovers(manager, time)
 
     for i in range(len(manager.time_left)):
         if time_left - manager.time_left[i] > 0:
