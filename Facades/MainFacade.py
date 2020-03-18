@@ -1,8 +1,8 @@
 from Objects import Reporter, ProcessManager, RequestReceiver, RequestProcessor
 
 
-def set_up_objects(f):
-    reporter = Reporter.Reporter(f)
+def set_up_objects():
+    reporter = Reporter.Reporter()
     order_manager = ProcessManager.ProcessManager()
     return reporter, order_manager
 
