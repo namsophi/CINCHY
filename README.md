@@ -9,7 +9,8 @@ This program allows multiple customers to put in a request to process documents 
 ## Getting Started
 
 To run this project, install it locally and run `main.py`. <br />
-Type in input to the python console as prompted.
+Type in input to the python console as prompted. <br />
+Process report will be written by the program in an external text file `report.txt`.
 
 ## Example Case
 
