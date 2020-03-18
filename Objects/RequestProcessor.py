@@ -11,8 +11,10 @@ def request_process(wait_times, order_manager, customers, reporter):
                        args=(work_pipe, order_manager, customers[i], reporter))
         work.start()
         workers.append(work)
-        time.sleep(int(wait_times[i]))
+        time.sleep(wait_times[i])
         order_manager = parent_pipe.recv()
+        for j in range(len(order_manager.time_left)):
+            order_manager.time_left[j] -= wait_times[i]
 
     [worker.join() for worker in workers]
     return order_manager

@@ -9,7 +9,7 @@ def request_receive():
         docs = input("Enter the number of documents to process: ")
         sla = input("Enter the SLA in minutes: ")
         wait_times.append(
-            input("Enter how many minutes to wait until next request: "))
+            int(input("Enter how many minutes to wait until next request: ")))
         customers.append(Customer(sla, docs))
 
     return wait_times, customers
