@@ -1,5 +1,6 @@
 import math
 import time
+from Objects import ProcessHelpers as pH
 
 
 def create_processes(pipe, manager, customer, reporter):
@@ -34,30 +35,12 @@ def _process_leftovers(manager, customer, reporter):
 
     for i in range(len(manager.time_left)):
         if time_left - manager.time_left[i] > 0:
-            for j in range(len(manager.time_left)):
-                manager.time_left[j] -= manager.time_left[i]
-            time_left -= manager.time_left[i]
-            current_processors = manager.processors
-            manager.time_left.pop(i)
-            manager.processors.pop(i)
-            manager.time_left.append(60)
-            manager.processors.append(current_processors)
-            to_buy += current_processors
-            time.sleep(manager.time_left[i])
+            pH.need_to_buy_more_processors(manager, to_buy, time_left, i)
+            reporter.report_single_process(customer.docs, customer.sla)
+
         else:
             time_needed = math.ceil(customer.docs / manager.processors[i])
-            if time_needed <= manager.time_left[i] \
-                    and time_needed < customer.sla:
-                for j in range(len(manager.time_left)):
-                    manager.time_left[j] -= time_needed
-                reporter.report_single_process(customer.docs, time_needed)
-            else:
-                for j in range(len(manager.time_left)):
-                    manager.time_left[j] -= time_left
-                    if manager.time_left[j] == 0:
-                        manager.time_left.pop(j)
-                        manager.processors.pop(j)
-                time.sleep(time_left)
-                reporter.report_single_process(customer.docs, customer.sla)
+            pH.can_finish_with_leftovers(manager, time_needed)
+            reporter.report_single_process(customer.docs, time_needed)
     return manager
 
