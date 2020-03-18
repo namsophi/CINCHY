@@ -71,12 +71,25 @@ Both of them wants 1 000 000 documents processed in 10 minutes.<br />
 
 4) A customer's request can be partially completed with previous processors<br />
 
+```
+Would you like to put in a new order? Answer Y/N: Y
+Enter the number of documents to process: 1000000
+Enter the SLA in minutes: 30
+Enter how many minutes to wait until next request: 10
+Would you like to put in a new order? Answer Y/N: Y
+Enter the number of documents to process: 1000000
+Enter the SLA in minutes: 10
+Enter how many minutes to wait until next request: 0
+Would you like to put in a new order? Answer Y/N: N
+Would you like a report of today's orders? Answer Y/N: Y
+```
 Customer A wants to process 1 000 000 documents in 30 minutes. <br />
 Customer B comes in 10 minutes after A's request is finished, and wants 1 000 000 documents processed in 10 minutes <br />
 
 * we already purchased 33334 processors for A, so by the time we start B's request, we have 33334 processors for 20 minutes
 * we then purchase 66666 more processors to finish B's request on time
 * we would end up with 33334 processors for 10 more minutes, and 66666 processors for 50 more minutes
+* so we purchase a total of 100 000 processors, costing $50 000
 
 ## Technology
 
