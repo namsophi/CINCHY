@@ -52,22 +52,29 @@ Customer B comes in 5 minutes after A's request is finished, and wants 1 000 000
 
 ```
 Would you like to put in a new order? Answer Y/N: Y
-Enter the number of documents to process: 1000000
+Enter the number of documents to process: 2000000
 Enter the SLA in minutes: 10
 Enter how many minutes to wait until next request: 0
 Would you like to put in a new order? Answer Y/N: Y
 Enter the number of documents to process: 1000000
-Enter the SLA in minutes: 10
+Enter the SLA in minutes: 20
+Enter how many minutes to wait until next request: 0
+Would you like to put in a new order? Answer Y/N: Y
+Enter the number of documents to process: 100000
+Enter the SLA in minutes: 30
 Enter how many minutes to wait until next request: 0
 Would you like to put in a new order? Answer Y/N: N
 Would you like a report of today's orders? Answer Y/N: Y
 
 ```
-Customer A and B put in a request at the same time. <br />
-Both of them wants 1 000 000 documents processed in 10 minutes.<br />
+Customer A, B, and C put in a request at the same time. <br />
+A --> 2 000 000 documents in 10 minutes<br />
+B --> 1 000 000 documents in 20 minutes<br />
+C --> 100 000 documents in 30 minutes <br />
 
-* We purchase 100 000 processors to process both of their requests in parallel
-* The total process time should be 10 minutes for both A and B, and the total cost would be $500 000
+* To process all their requests in parallel, we can buy 200 000 processors with $1 000 000
+* B's request can be finished in 5 minutes
+* A's request can be finished in 1 minute
 
 4) A customer's request can be partially completed with previous processors<br />
 
